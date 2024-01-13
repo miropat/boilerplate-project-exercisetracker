@@ -71,13 +71,11 @@ app.post('/api/users/:_id/exercises', async (req,res) => {
           duration: exercise.duration,
           date: new Date(exercise.date).toDateString()
         })
-
     }
   }catch(err) {
     console.log(err)
     res.json("There was an error in saving the exercise"+ err)
   }
-  
 })
 
 app.get('/api/users', async (req,res) =>{
@@ -92,7 +90,7 @@ app.get('/api/users', async (req,res) =>{
 app.get('/api/users/:_id/logs', async (req, res) => {
   const { from, to, limit } = req.query;
   const id = req.params._id
-  const user = await User.findById(id)
+  const user = await User.findById(mongoose.Types.ObjectId(id))
   if(!user){
     res.json("User not found")
   }
