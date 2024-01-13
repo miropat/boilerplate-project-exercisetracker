@@ -77,8 +77,7 @@ app.post('/api/users/:_id/exercises', async (req,res) => {
     console.log(err)
     res.json("There was an error in saving the exercise"+ err)
   }
-  console.log("post request");
-  res.json(req.body);
+  
 })
 
 app.get('/api/users', async (req,res) =>{
